@@ -163,11 +163,11 @@ dl.car-types dd {
     color: red;
 }
 
-h2 + ul li:first-child,
-h2 + ul li:nth-child(2) {
+h2 + ul li:first-child {
     font-weight: bold;
     color: black;
 }
+
 
 #benefits > li:nth-child(odd) {
     color: green;
@@ -240,5 +240,5 @@ h2 + ul li:nth-child(2) {
 }
 .highlight-brand {
     font-weight: bold;
-    color: red; /* or any other style you prefer */
+    color: red;
 }

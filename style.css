@@ -238,3 +238,7 @@ h2 + ul li:nth-child(2) {
     font-style: italic;
     color: navy;
 }
+.highlight-brand {
+    font-weight: bold;
+    color: red; /* or any other style you prefer */
+}

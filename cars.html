@@ -6,10 +6,107 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Наші автомобілі</title>
     <link rel="stylesheet" href="style.css">
+    <script src="dialog.js" defer></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById("change-background-button").addEventListener("click", function() {
+                const originalBackground = document.body.style.backgroundColor;
+                document.body.style.backgroundColor = "lightblue";
+                setTimeout(function() {
+                    document.body.style.backgroundColor = originalBackground;
+                }, 30000);
+            });
+
+            document.getElementById("change-header-button").addEventListener("click", function() {
+                const header = document.getElementById("header-text");
+                header.textContent = "Ласкаво просимо на цю сторінку!!";
+            });
+
+            document.getElementById("change-paragraphs-button").addEventListener("click", function() {
+                const paragraphs = document.querySelectorAll("p");
+                paragraphs.forEach(p => {
+                    p.textContent = "Цей параграф був змінений!";
+                });
+            });
+
+            document.getElementById("change-list-item-button").addEventListener("click", function() {
+                const firstListItem = document.querySelector("ul li");
+                firstListItem.innerHTML = "<strong>Змінений елемент списку</strong>";
+            });
+
+            document.getElementById("replace-list-item-button").addEventListener("click", function() {
+                const secondListItem = document.querySelectorAll("ul li")[1];
+                secondListItem.outerHTML = "<li><em>Новий елемент списку</em></li>";
+            });
+
+            document.getElementById("change-brand-button").addEventListener("click", function() {
+                const firstBrand = document.querySelector(".highlight-brand");
+                firstBrand.firstChild.nodeValue = "Roshel";
+            });
+
+            document.getElementById("change-car-type-button").addEventListener("click", function() {
+                const firstCarType = document.querySelector(".car-types dd");
+                firstCarType.textContent = "Доволі таки специфічний тип кузова.";
+            });
+
+            document.getElementById("write-text-button").addEventListener("click", function() {
+                document.write("<p>Цей текст був доданий за допомогою document.write.</p>");
+            });
+
+            document.getElementById("add-element-button").addEventListener("click", function() {
+                const newElement = document.createElement("p");
+                newElement.textContent = "Цей параграф був доданий за допомогою append.";
+                document.body.append(newElement);
+            });
+
+            document.getElementById("prepend-element-button").addEventListener("click", function() {
+                const newElement = document.createElement("p");
+                newElement.textContent = "Цей параграф був доданий за допомогою prepend.";
+                document.body.prepend(newElement);
+            });
+
+            document.getElementById("insert-after-button").addEventListener("click", function() {
+                const header = document.querySelector(".header");
+                const newElement = document.createElement("p");
+                newElement.textContent = "Цей параграф був доданий за допомогою after.";
+                header.after(newElement);
+            });
+
+            document.getElementById("replace-header-button").addEventListener("click", function() {
+                const header = document.querySelector(".header");
+                const newElement = document.createElement("h1");
+                newElement.textContent = "Вітаємо на нашій сторінці!";
+                header.replaceWith(newElement);
+            });
+
+            document.getElementById("remove-list-item-button").addEventListener("click", function() {
+                const brands = document.querySelectorAll(".highlight-brand");
+                if (brands.length > 0) {
+                    brands[brands.length - 1].parentElement.remove();
+                }
+            });
+        });
+    </script>
 </head>
 <body>
 <div class="header">
-    <h1>Ласкаво просимо до наших автомобілів!</h1>
+    <h1 id="header-text">Ласкаво просимо до наших автомобілів!</h1>
+</div>
+<div class="button-container">
+    <button id="survey-button">Пройти опитування</button>
+    <button id="change-background-button">Змінити фон</button>
+    <button id="change-header-button">Змінити заголовок</button>
+    <button id="change-paragraphs-button">Змінити параграфи</button>
+    <button id="change-list-item-button">Змінити елемент списку</button>
+    <button id="replace-list-item-button">Замінити елемент списку</button>
+    <button id="change-brand-button">Змінити марку авто</button>
+    <button id="change-car-type-button">Змінити тип кузова</button>
+    <button id="write-text-button">Додати текст</button>
+    <button id="add-element-button">Додати елемент в кінці сторінки</button>
+    <button id="prepend-element-button">Додати елемент на початок</button>
+    <button id="insert-after-button">Вставити елемент після заголовка</button>
+    <button id="replace-header-button">Замінити заголовок</button>
+    <button id="remove-list-item-button">Видалити останню марку авто</button>
 </div>
 <div class="content">
     <p>На цій сторінці ви знайдете різну інформацію про автомобілі, зокрема про сучасні моделі та електромобілі. Автомобілі постійно змінюються і розвиваються, з’являються нові моделі, нові технології та зростає потреба в більш екологічних рішеннях.</p>

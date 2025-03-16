@@ -169,15 +169,11 @@ h2 + ul li:first-child {
 }
 
 
-#benefits > li:nth-child(odd) {
-    color: green;
+#benefits > li {
+    color: black;
     font-weight: bold;
 }
 
-#benefits > li:nth-child(even) {
-    color: blue;
-    font-style: italic;
-}
 
 .header {
     position: relative;

@@ -6,6 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Електромобілі</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        .highlight {
+            background-color: yellow;
+        }
+        .menu {
+            display: flex;
+            gap: 10px;
+        }
+        .menu button {
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
 <div class="header">
@@ -51,12 +64,45 @@
 
     <h3>Переваги електромобілів:</h3>
     <ul id="benefits">
-        <li>Екологічність: зменшення викидів шкідливих газів.</li>
-        <li>Низький рівень шуму: ідеальний для міських умов.</li>
-        <li>Менше витрат на обслуговування: електродвигуни вимагають менше уваги.</li>
-        <li>Економія пального: значно знижені витрати на енергію в порівнянні з бензиновими автомобілями.</li>
+        <li data-behavior="highlight">Екологічність: зменшення викидів шкідливих газів.</li>
+        <li data-behavior="highlight">Низький рівень шуму: ідеальний для міських умов.</li>
+        <li data-behavior="highlight">Менше витрат на обслуговування: електродвигуни вимагають менше уваги.</li>
+        <li data-behavior="highlight">Економія пального: значно знижені витрати на енергію в порівнянні з бензиновими автомобілями.</li>
     </ul>
+
+    <div class="menu">
+        <button data-action="highlight">Підсвітити елемент</button>
+        <button data-action="clear">Очистити підсвічування</button>
+        <button data-action="alert">Показати сповіщення</button>
+    </div>
 
     <a href="index.html">Назад на головну</a>
 </div>
+
+<script>
+    document.getElementById('benefits').addEventListener('click', function(event) {
+        if (event.target.tagName === 'LI' && event.target.dataset.behavior === 'highlight') {
+            const items = document.querySelectorAll('#benefits li');
+            items.forEach(item => item.classList.remove('highlight'));
+            event.target.classList.add('highlight');
+        }
+    });
+
+    document.querySelector('.menu').addEventListener('click', function(event) {
+        if (event.target.tagName === 'BUTTON') {
+            const action = event.target.dataset.action;
+            if (action === 'highlight') {
+                const items = document.querySelectorAll('#benefits li');
+                items.forEach(item => item.classList.remove('highlight'));
+                items[0].classList.add('highlight');
+            } else if (action === 'clear') {
+                const items = document.querySelectorAll('#benefits li');
+                items.forEach(item => item.classList.remove('highlight'));
+            } else if (action === 'alert') {
+                alert('Це сповіщення!');
+            }
+        }
+    });
+</script>
 </body>
+</html>

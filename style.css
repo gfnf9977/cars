@@ -185,28 +185,6 @@ h2 + ul li:first-child {
     z-index: 0;
 }
 
-.content::before {
-    content: 'Welcome to the world of cars!';
-    position: absolute;
-    top: -20px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 1.5em;
-    color: gray;
-    font-style: italic;
-}
-
-.content::after {
-    content: 'Scroll down for more information';
-    position: absolute;
-    bottom: -20px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 1.2em;
-    color: darkgray;
-    font-style: italic;
-}
-
 .float-left {
     float: left;
     width: 45%;

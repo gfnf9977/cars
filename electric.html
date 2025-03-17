@@ -14,9 +14,15 @@
             display: flex;
             gap: 10px;
         }
-        .menu button {
-            padding: 10px 20px;
+        .menu button, .menu .icon-button {
+            padding: 10px;
             cursor: pointer;
+            border: none;
+            background: none;
+        }
+        .icon-button img {
+            width: 30px;
+            height: 30px;
         }
     </style>
 </head>
@@ -73,7 +79,9 @@
     <div class="menu">
         <button data-action="highlight">Підсвітити елемент</button>
         <button data-action="clear">Очистити підсвічування</button>
-        <button data-action="alert">Показати сповіщення</button>
+        <div class="icon-button" data-action="alert">
+            <img src="https://surl.lu/alosha" alt="Переваги Tesla">
+        </div>
     </div>
 
     <a href="index.html">Назад на головну</a>
@@ -89,8 +97,8 @@
     });
 
     document.querySelector('.menu').addEventListener('click', function(event) {
-        if (event.target.tagName === 'BUTTON') {
-            const action = event.target.dataset.action;
+        if (event.target.tagName === 'BUTTON' || event.target.closest('.icon-button')) {
+            const action = event.target.dataset.action || event.target.closest('.icon-button').dataset.action;
             if (action === 'highlight') {
                 const items = document.querySelectorAll('#benefits li');
                 items.forEach(item => item.classList.remove('highlight'));
@@ -99,7 +107,7 @@
                 const items = document.querySelectorAll('#benefits li');
                 items.forEach(item => item.classList.remove('highlight'));
             } else if (action === 'alert') {
-                alert('Це сповіщення!');
+                alert('Tesla вирізняється інноваційними технологіями, високою якістю виробництва та продуктивними акумуляторами. До прикладу, цілком бюджетніші китайські електромобілі часто пропонують нижчу ціну, але явно не довговічність.');
             }
         }
     });

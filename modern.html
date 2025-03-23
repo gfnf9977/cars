@@ -15,6 +15,11 @@
             float: right;
             margin-left: 10px;
         }
+        .info {
+            margin-top: 20px;
+            font-size: 14px;
+            color: gray;
+        }
     </style>
 </head>
 <body>
@@ -37,12 +42,17 @@
     <img src="https://surl.li/reiuys" alt="Mercedes" width="400" height="250" onmouseover="enlargeImage(event)" onmouseout="resetImage(event)">
 
     <a href="index.html" style="color: black;">Назад на головну</a>
+
+    <div class="info">
+        <p>Курсор перемістився з об'єкта: <span id="from-element"></span></p>
+    </div>
 </div>
 <script>
     function enlargeImage(event) {
         const img = event.currentTarget;
         img.style.transform = 'scale(1.9)';
         img.style.transition = 'transform 0.3s';
+        document.getElementById('from-element').textContent = event.relatedTarget ? event.relatedTarget.tagName : 'Невідомо';
     }
 
     function resetImage(event) {

@@ -6,6 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Електромобілі</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        #draggableImage {
+            position: absolute;
+            cursor: grab;
+        }
+
+        #benefits li:hover {
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
 <div class="header">
@@ -13,6 +23,8 @@
 </div>
 <div class="content">
     <p id="intro">Електромобілі стали одним з найбільш революційних досягнень в автомобільній індустрії. Вони зменшують викиди шкідливих газів і допомагають зберігати навколишнє середовище, що є критично важливим для сталого розвитку. Перші прототипи електромобілів були створені ще в 19 столітті, але сьогодні вони набирають все більшу популярність завдяки розвитку акумуляторних технологій.</p>
+
+    <img id="draggableImage" src="0458.png" alt="Electric Car Image">
 
     <p>Електромобілі стають дедалі популярнішими завдяки своїй екологічності та економічності. Вони зменшують викиди шкідливих речовин у атмосферу та є набагато менш шумними, що робить їх ідеальним варіантом для міських умов.</p>
 
@@ -59,4 +71,35 @@
 
     <a href="index.html">Назад на головну</a>
 </div>
+
+<script>
+    const draggableImage = document.getElementById('draggableImage');
+
+    let offsetX, offsetY, isDragging = false;
+
+    draggableImage.addEventListener('mousedown', startDrag);
+    document.addEventListener('mousemove', drag);
+    document.addEventListener('mouseup', stopDrag);
+
+    function startDrag(e) {
+        isDragging = true;
+        offsetX = e.clientX - draggableImage.offsetLeft;
+        offsetY = e.clientY - draggableImage.offsetTop;
+        draggableImage.style.cursor = 'grabbing';
+    }
+
+    function drag(e) {
+        if (isDragging) {
+            draggableImage.style.left = e.clientX - offsetX + 'px';
+            draggableImage.style.top = e.clientY - offsetY + 'px';
+        }
+    }
+
+    function stopDrag() {
+        isDragging = false;
+        draggableImage.style.cursor = 'grab';
+    }
+</script>
+
 </body>
+</html>

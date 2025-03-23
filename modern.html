@@ -15,23 +15,6 @@
             float: right;
             margin-left: 10px;
         }
-        .bottom-buttons {
-            position: fixed;
-            bottom: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 10px;
-        }
-        .bottom-buttons button {
-            background: none;
-            border: none;
-            cursor: pointer;
-        }
-        .bottom-buttons img {
-            width: 50px;
-            height: 50px;
-        }
     </style>
 </head>
 <body>
@@ -54,19 +37,6 @@
     <img src="https://surl.li/reiuys" alt="Mercedes" width="400" height="250" onmouseover="enlargeImage(event)" onmouseout="resetImage(event)">
 
     <a href="index.html" style="color: black;">Назад на головну</a>
-
-    <div class="button-group">
-        <button id="changeColorAttribute">Змінити колір заголовка через атрибут</button>
-        <button id="changeColorProperty">Змінити колір заголовка через властивість</button>
-
-        <button id="changeBackgroundPurple">Фіолетовий фон</button>
-        <button id="changeBackgroundWhite">Білий фон</button>
-        <button id="changeBackgroundPink">Рожевий фон</button>
-    </div>
-</div>
-<div class="bottom-buttons">
-    <button id="logButton"><img src="https://surl.lu/alosha" alt="Info"></button>
-    <button id="removeButton"><img src="https://surl.li/mxopnv" alt="Вимкнути info"></button>
 </div>
 <script>
     function enlargeImage(event) {
@@ -79,40 +49,6 @@
         const img = event.currentTarget;
         img.style.transform = 'scale(1)';
     }
-
-    document.getElementById('changeColorAttribute').setAttribute('onclick', 'document.getElementById("main-header").style.color = "red";');
-
-    document.getElementById('changeColorProperty').onclick = function() {
-        document.getElementById("main-header").style.color = "black";
-    };
-
-    document.getElementById('changeBackgroundPurple').addEventListener('click', function() {
-        document.body.style.backgroundColor = 'purple';
-    });
-
-    document.getElementById('changeBackgroundWhite').addEventListener('click', function() {
-        document.body.style.backgroundColor = 'white';
-    });
-
-    document.getElementById('changeBackgroundPink').addEventListener('click', function() {
-        document.body.style.backgroundColor = 'pink';
-    });
-
-    const eventHandler = {
-        handleEvent: function(event) {
-            const element = event.currentTarget;
-            console.log('Елемент, на якому спрацював обробник:', element);
-            alert('Елемент, на якому спрацював обробник: ' + element.tagName);
-        }
-    };
-
-    const logButton = document.getElementById('logButton');
-    logButton.addEventListener('click', eventHandler);
-
-    document.getElementById('removeButton').addEventListener('click', function() {
-        logButton.removeEventListener('click', eventHandler);
-        alert('Обробник події видалено.');
-    });
 </script>
 </body>
 </html>
